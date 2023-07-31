@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
 import StarshipCard from './StarshipCard.js';
+import './sw-api.css'
+
 function GetAllStarships(){
     const [starShips, setStarShips] = useState([])
 
@@ -22,8 +24,11 @@ function GetAllStarships(){
 
     }, [setStarShips]);
     return(
-        <div>
-             {starShips.map((starShips) => <StarshipCard name={starShips.name}  key={starShips.id}/>)}
+        <div className='card-container'>
+             {starShips.map((starShips) => 
+             <div className="card">
+                <StarshipCard name={starShips.name}  key={starShips.id}/>
+                </div>)}
         </div>
     )
 }
